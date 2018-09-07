@@ -17,3 +17,6 @@ Route::get('/', 'PageController@index')->name('page.index');
 
 Route::get('cargarcitios/{destion}', 'PageController@cargarcitios')->name('page.cargarcitios');
 Route::get('cargar_fecha_nrodias/{cargarcitios}', 'PageController@cargar_fecha_nrodias')->name('page.cargar_fecha_nrodias');
+
+
+Route::get('search/', 'PageController@search')->name('page.search');

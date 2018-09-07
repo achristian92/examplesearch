@@ -19,7 +19,7 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
      
         <script type="text/javascript">
             $(document).ready(function(){  
@@ -67,24 +67,24 @@ $('#cities').empty();
     </head>
  
     <body>
-        <form id="myForm">
+   
         @foreach ($destinations as $destino)
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="destino" id="destino" value="{{$destino->id}}">
         <label class="form-check-label" for="inlineRadio1">{{$destino->name}}</label>
         </div>
         @endforeach
-        
+        <form id="myForm" method="GET" action="{{route('page.search')}}">
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="exampleFormControlSelect1">Destino</label>
-                    <select class="form-control" id="cities" onchange="CargarProductos(this.value);">
+                    <select class="form-control" id="cities" name="citiesname" onchange="CargarProductos(this.value);">
                       <option>.::Seleccionar::.</option>
                     </select>
                 </div>
               <div class="form-group col-md-3">
                 <label for="inputPassword4">Fecha</label>
-                <select class="form-control" id="fecha">
+                <select class="form-control" id="fecha" name="fechaname">
                         <option>.::Seleccionar::.</option>
                 </select>
               </div>
@@ -96,6 +96,7 @@ $('#cities').empty();
                 <div id="respuesta"></div>
             </div>
             </div>
+            <button type="submit" value="buscar">buscar</button>
         </form>
     </body>
 
